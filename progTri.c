@@ -1,4 +1,5 @@
 #include "tri.h"
+#include "tas.h"
 #include "util.h"
 
 int

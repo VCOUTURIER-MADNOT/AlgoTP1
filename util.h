@@ -5,6 +5,7 @@
 	#include <stdlib.h>
 
 	int		readInputFile(const char* _filename, int ** _array, int * _arraySize);
+
 	void	printArrayContent(const int * _array, int _arraySize);
 
 #endif
