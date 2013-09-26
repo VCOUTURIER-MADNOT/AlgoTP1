@@ -1,9 +1,9 @@
-CC = gcc -Wall -O3 -ansi
+CC = gcc -Wall -O3 -ansi -pedantic
 
 all: progTri
 
 progTri: progTri.o tri.o tas.o util.o
-	$(CC) -o progTri progTri.o tas.o util.o
+	$(CC) -o progTri progTri.o tri.o tas.o util.o
 
 progTri.o: progTri.c tri.h types.h
 	$(CC) -o progTri.o -c progTri.c
