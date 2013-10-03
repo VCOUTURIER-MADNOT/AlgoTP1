@@ -1,21 +1,18 @@
 #include "tri.h"
 
-void
-triInsertion(int * _array, int _arraySize)
+void triInsertion(int * _array, int _taille)
 {
 	int i, j;
-	int key;
+	int cle;
 
-	for(i = 1; i < _arraySize; i++)
+	for (j = 1; j < _taille; j++)
 	{
-		key = _array[i];
-		j = i - 1;
-		while(j >= 0 && _array[j] > key)
-		{
-			_array[j+1] = _array[j];
-			j = j - 1;
+		cle = _array[j];
+		i = j-1;
+		while(i>=0 && _array[i]>cle){
+			_array[i + 1] = _array[i];
+			i = i-1;
 		}
-		_array[j+1] = key;
+		_array[i+1] = cle;
 	}
 }
-
