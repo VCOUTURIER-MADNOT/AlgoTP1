@@ -3,38 +3,42 @@
 
 int parent(int _index)
 {
-	return _index/2;
+	return (_index < 0 ? -1 : (_index-1)/2);
 }
 
 int gauche(int _index)
 {
-	return 2*_index;
+	return (_index < 0 ? -1 : 2*_index + 1);
 }
 
 int droite(int _index)
 {
-	return (2*_index +1);
+	return (_index < 0 ? -1 : (2*_index +2));
 }
 
 void entasserMax(Tas * _tas, int _index)
 {
 	int g = gauche(_index);
 	int d = droite(_index);
-	int max = _index;
+	int max;
 
-	if (g <= (*_tas).length && (*_tas).array[g] > (*_tas).array[_index])
+	if (g < _tas->length && _tas->array[g] > _tas->array[_index])
 	{
 		max = g;
 	}
-	else if ( d <= (*_tas).length && (*_tas).array[d] > (*_tas).array[_index])
+	else
+	{
+		max = _index;
+	}
+
+	if ( d < _tas->length && _tas->array[d] > _tas->array[max])
 	{
 		max = d;
 	}
 
 	if (max != _index)
 	{
-		printf("on echange l'indice %d et %d", _index, max);
-		echanger( &(*_tas).array, (*_tas).length, _index, max);
+		echanger( &_tas->array, _tas->length, _index, max);
 		entasserMax(_tas, max);
 	}
 }
@@ -52,14 +56,10 @@ Tas * construireTasMax(int * _array, int _size)
 	{
 		tas->array[i] = _array[i];
 	}
-	printf("****************\n");
-	printArray(tas->array, _size);
 
-	for (i = ((_size/2)-1); i >= 0; i--)
+	for (i = ((_size-1)/2); i >= 0; i--)
 	{
 		entasserMax(tas, i);
-		printf("******\n");
-		printArray(tas->array, _size);
 	}
 
 	return tas;

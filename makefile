@@ -5,16 +5,16 @@ all: progTri
 progTri: progTri.o tri.o tas.o util.o
 	$(CC) -o progTri progTri.o tri.o tas.o util.o
 
-progTri.o: progTri.c tri.h types.h
+progTri.o: progTri.c tri.h
 	$(CC) -o progTri.o -c progTri.c
 
-tri.o: tri.c tri.h tas.h types.h
+tri.o: tri.c tri.h tas.h
 	$(CC) -o tri.o -c tri.c
 
-tas.o: tas.c tas.h util.h types.h
+tas.o: tas.c tas.h util.h
 	$(CC) -o tas.o -c tas.c
 
-util.o: util.c util.h types.h
+util.o: util.c util.h
 	$(CC) -o util.o -c util.c
 
 clean:

@@ -10,4 +10,8 @@
 
 	void printArray(int * _array, int _size);
 
+	int * randomArray(int _size);
+
+	int * arrayCopy(int * _source, int _sizeSource);
+
 #endif
